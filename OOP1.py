@@ -49,16 +49,68 @@ def add(v1, v2):
 """ S O L I D """
 class Person:
     def __init__(self, name, age):
-        self.name = name
-        self.age = age
+        self.__name = name
+        self.__age = age
+
+    def get_name(self):
+        return self.__name
+
+    def set_name(self, new_name):
+        if not isinstance(new_name, str):
+            raise TypeError('Объект должен быть строкой')
+        self.__name = new_name
+
+    @property
+    def age(self):
+        return self.__age
+
+    @age.setter
+    def age(self, new_age):
+        if not isinstance(new_age, int):
+            raise TypeError('Объект должен быть строкой')
+        self.__name = new_age
+
+
+    name =property(get_name, set_name)
 
     def __str__(self):
         return f'{self.name} is {self.age} years old'
 
 
+class University:
+    def __init__(self, name_university):
+        self.__name_university = name_university
+
+    @property
+    def name_university(self):
+        return self.__name_university
+
+class Student(Person, University):
+    def __init__(self, name, age, university):
+        super().__init__(name, age)
+        University.__init__(self, university)
+
+
+    def __str__(self):
+        return (f'{self.name} is {self.age} years old: '
+                f'{self.name_university} ')
+
+
+
+
 ps1= Person('Mary', 18)
 ps2= Person('Pit', 19)
 ps3= Person('Dasha', 19)
+print(ps1.get_name())
+ps1.set_name('Sasha')
 print(ps1.name)
-ps1.name = 'Sasha'
-print(ps1.name)
+ps1.name = 'Mary'
+print(ps1.name, ps1.age)
+st1 = Student('Dasha', 18, university='MGU')
+st2 = Student('Pit', 20, university='MAI')
+print(st2)
+print(ps2)
+print(isinstance(st2, Student))
+print(isinstance(st2, Person))
+print(isinstance(ps1, Person))
+
