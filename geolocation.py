@@ -4,11 +4,13 @@ from tkinter import *
 from tkinter import messagebox
 from translate import Translator
 import webbrowser
+import requests
+
 
 translator = Translator(from_lang='en', to_lang='ru')
-st = 'Russia'
-res = translator.translate(st)
-print(res)
+
+
+
 
 
 def get_coordinates(city, key):
