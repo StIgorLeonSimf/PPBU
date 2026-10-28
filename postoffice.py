@@ -5,7 +5,7 @@ from email.message import EmailMessage
 
 password = "nrexjbkmwebjnvcn"
 sender_email = "StIgorLeon@yandex.ru"
-recipient_email = ["aligol6573@gmail.com","stigorleon@gmail.com" ]
+recipient_email = ["aligol6573@gmail.com", "stigorleon@gmail.com" ]
 subject = 'Проверка связи'
 body = 'текст проверочного сообщения '
 
