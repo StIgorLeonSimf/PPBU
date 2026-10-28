@@ -28,7 +28,7 @@ def exchange():
     # code = combobox.get()
     if target_code and base_code:
         try:
-            
+
             response = requests.get(f'https://open.er-api.com/v6/latest/{base_code}')
             response.raise_for_status()
             data = response.json()

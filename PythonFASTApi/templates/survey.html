@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Анкета</title>
+</head>
+<body>
+
+  <form action="/submit" method="post">
+    {% for q in questions %}
+      <label >{{ q }}:</label><br>
+      <input type="text"  name="answer_{{ loop.index }}" required><br><br>
+    {% endfor %}
+
+    <button type="submit">Отправить</button>
+
+  </form>
+
+</body>
+</html>

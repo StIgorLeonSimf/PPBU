@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form method="get" action="/search">
+  <input type="text" name="q" value="{{ q }}" placeholder="Поиск...">
+  <button type="submit">Найти</button>
+</form>
+
+{% if q %}
+  <h3>Результат по запросу {{ q }}:</h3>
+  {% if results %}
+    <ul>
+      {% for item in results %}
+        <li> {{ item.name }} - {{ item.price }} руб.</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Ничего не найдено</p>
+  {% endif %}
+{% endif %}
+
+</body>
+</html>
