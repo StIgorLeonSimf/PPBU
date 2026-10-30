@@ -83,8 +83,17 @@ def main(n, m):
     while len(res) < n:
         res.add(get_password(m))
 
-    for p in res:
-        print(p)
+    with open('passwords.txt', 'w') as f:
+        for i, p in enumerate(res, 1):
+            f.write(f'{i:2}. {p}\n')
 
 
-main(10, 12)
+# main(10, 12)
+
+regex = r'^[+0-9]9\d{9,10}'
+phone_number = '897832145677'
+res = re.fullmatch(regex, phone_number)
+if res:
+    print(res.group())
+else:
+    print('неправильный номер ТЛФ')
