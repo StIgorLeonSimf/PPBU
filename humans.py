@@ -49,4 +49,43 @@ Human by name MarArt (Hanger, Stick, 0)
 True True True
 """
 
+class Human:
+    def __init__(self, name, *entities, magic=0):
+        self.name = name
+        self.magic = magic
+        self.entities = list(entities)
 
+    def change_name(self, name):
+        self.name +=  ' ' + name
+
+    def __add__(self, other):
+        self.magic += len(other) // 4
+        self.entities.append(other)
+        items = ', '.join(self.entities)
+        return Human(self.name, items, self.magic)
+
+    def __call__(self, num):
+        return self.entities[:num]
+
+
+    def __str__(self):
+        return f'Человек по имени {self.name} ({', '.join(self.entities)}, {self.magic})'
+
+
+
+
+
+
+hm = Human('Illmarrannen', 'Forgiving', 'Forgiven', magic=2)
+hm.change_name('Rual')
+id_hm = id(hm)
+print(id_hm)
+hm += 'Skyman'
+# print(hm, hm(2), sep='\n')
+print(id_hm)
+print(id_hm == id(hm))
+
+
+
+# name, num, *marks, last = 'Dasha', 3, 5, 4, 3, 2, 1
+# print(name, num, marks,  last, sep='\n')
