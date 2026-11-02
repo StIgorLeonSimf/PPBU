@@ -1,6 +1,6 @@
 import math
 
-from OOP4 import Shape
+from OOP4 import Shape, Rectangle
 
 
 class Circle(Shape):
