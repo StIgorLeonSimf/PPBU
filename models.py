@@ -25,3 +25,8 @@ class Card:
         else:
             print(f'На карте № {self.number} не достаточно средств')
 
+    def __str__(self):
+        return (f'Владелец: {self.owner}\n'
+                f'Карта: {self.number}\n'
+                f'Операций: {self.count}\n')
+
