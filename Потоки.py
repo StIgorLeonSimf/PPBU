@@ -16,10 +16,13 @@ def f2(n: int):
 
 if __name__ == '__main__':
     start = time.time()
+    # thread1 = Thread(target=f1, args=(50,), daemon=True)
     thread1 = Thread(target=f1, args=(50,))
     thread2 = Thread(target=f2, args=(6,))
+    # thread2.daemon = True
     thread1.start()
     thread2.start()
+
     thread1.join()
     thread2.join()
     stop = time.time()
