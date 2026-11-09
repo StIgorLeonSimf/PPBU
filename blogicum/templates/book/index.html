@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %} Книги {% endblock %}</title>
+</head>
+<body>
+  <h1>Проверка работы Django</h1>
+  {% for book in page_obj %}
+    <hr>
+    <h4> Название: {{ book.title }} </h4>
+    <h4> Автор: {{ book.author }} </h4>
+    {% if forloop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+
+</body>
+</html>

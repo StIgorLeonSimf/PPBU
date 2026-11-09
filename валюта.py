@@ -9,6 +9,7 @@ from bottle import response
 
 
 def update_currency_label(event):
+    """Смена названия валюты(Доллар США, Российский рубль)"""
     code = target_combobox.get()
     # code = combobox.get()
     name = currencies[code]
@@ -96,3 +97,4 @@ root.mainloop()
 # result = requests.get('https://open.er-api.com/v6/latest/USD')
 # data = json.loads(result.text)
 # p.pprint(data)
+print(update_currency_label.__doc__)
